@@ -55,22 +55,20 @@ export function AboutMe() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="group relative mx-auto max-w-[400px]">
-              {/* Ambient glow */}
-              <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-silver/[0.05] blur-[80px]" />
-
-              {/* Portrait frame */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border">
-                <img
-                  src={`${import.meta.env.BASE_URL}portrait.jpg`}
-                  alt="Mohamed Elyes Azher — Resident Engineer"
-                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.03]"
-                  loading="lazy"
-                  width={800}
-                  height={1000}
-                />
-              </div>
-            </div>
+<div className="group relative mx-auto h-full max-w-[400px]">
+  <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-silver/[0.05] blur-[80px]" />
+  {/* Changed aspect-[4/5] to h-full so it stretches with the left column */}
+  <div className="relative h-full min-h-[500px] overflow-hidden rounded-lg border border-border">
+    <img
+      src={`${import.meta.env.BASE_URL}portrait.jpg`}
+      alt="Mohamed Elyes Azher — Resident Engineer"
+      className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.03]"
+      loading="lazy"
+      width={800}
+      height={1000}
+    />
+  </div>
+</div>
           </motion.div>
         </div>
       </div>

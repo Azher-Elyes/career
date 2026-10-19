@@ -16,7 +16,6 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const HERO = {
-  statusLabel: ['Management', 'Quality', 'Operations', 'Engineering'],
   name: 'Mohamed Elyes Azher',
   category: 'Management · Quality · Operations · Engineering',
   headline: {
@@ -26,8 +25,8 @@ export const HERO = {
   statement:
     'I bring together operational coordination, industrial quality and international supplier representation with a strong foundation in electrical electronic engineering and Software engineering enabling me to align stakeholders, navigate complex challenges and turn technical understanding into effective action.',
   currentRole: {
-    title: 'Resident Engineer | Supplier Representative',
-    meta: '4-CE · Visteon Tunisia · HannStar & Tianma Microelectronics',
+    title: 'Resident Engineer | Company Representative',
+    meta: '· Tianma Microelectronics',
     detail: 'Automotive Display Technology',
   },
   primaryCta: 'Explore My Experience',
@@ -43,9 +42,9 @@ export const ABOUT_ME = {
   headline: 'An Engineer by Foundation.',
   subheadline: 'A Leader by Mindset.',
   intro: [
-    'I am Mohamed Elyes Azher, a management-oriented professional with an engineering foundation and a strong focus on quality, operations, coordination, and industrial performance. My background combines Electrical & Electronics Engineering with ongoing Software Engineering studies, giving me the ability to understand both industrial systems and digital technologies.',
-    'As a Resident Engineer representing HannStar at Visteon, I operate at the intersection of management, quality, operations, and engineering. I coordinate stakeholders, manage customer requirements, follow critical issues, support technical investigations, and drive problems toward resolution while maintaining alignment between customer and supplier teams.',
-    'My engineering background allows me to understand complex technical challenges. My experience in industrial environments has developed my ability to coordinate people, manage priorities, communicate across organizations, make decisions, and turn technical problems into actionable solutions.',
+    'I am a management-oriented engineering professional with a strong focus on quality, operations, and industrial performance. My background combines Electrical & Electronics Engineering with ongoing Software Engineering studies, allowing me to bridge industrial systems and digital technologies.',
+    'Currently, as a Resident Engineer representing HannStar at Visteon, I operate at the intersection of management, quality, and engineering. I coordinate stakeholders, manage customer requirements, and drive critical technical issues toward resolution while aligning customer and supplier teams.',
+    'My engineering foundation allows me to understand complex technical challenges, while my industrial experience has developed my ability to coordinate people, manage priorities, and turn technical problems into actionable solutions.',
   ],
 };
 
@@ -63,45 +62,39 @@ export const WHAT_I_BRING = {
   label: 'What I Bring',
   cards: [
     {
-      number: '01',
       title: 'Leadership',
       description:
-        'Aligning people, stakeholders and priorities toward common objectives.',
+        'Aligning people, stakeholders, and priorities toward shared objectives.',
       icon: 'Users',
     },
     {
-      number: '02',
       title: 'Quality',
       description:
-        'Structured problem solving, continuous improvement and risk management.',
+        'Structured problem solving, continuous improvement, and risk management.',
       icon: 'ShieldCheck',
     },
     {
-      number: '03',
       title: 'Operations',
       description:
-        'Turning plans into execution with efficient coordination and sustainability.',
+        'Turning plans into execution through efficient coordination and sustainability.',
       icon: 'Cog',
     },
     {
-      number: '04',
       title: 'Technical Depth',
       description:
-        'Understanding complex systems to make informed decisions.',
+        'Understanding complex systems to make informed and effective decisions.',
       icon: 'CircuitBoard',
     },
     {
-      number: '05',
       title: 'Customer & Supplier',
       description:
         'Building strong relationships and aligning expectations and capabilities.',
       icon: 'Handshake',
     },
     {
-      number: '06',
       title: 'Digital Transformation',
       description:
-        'Using technology, data and AI to improve how teams and organizations operate.',
+        'Using technology, data, and AI to improve how teams and organizations operate.',
       icon: 'Cloud',
     },
   ],
@@ -247,64 +240,56 @@ export const CORE_EXPERTISE = {
 
   // ═══ MANAGEMENT CAPABILITIES ═══
   management: {
-  capabilities: [
-    {
-      number: '01',
-      title: 'International Representation',
-      description:
-        'Representing organizations and technical interests in international customer and supplier environments, building trust, maintaining alignment, and managing cross-organizational relationships.',
-      icon: 'Globe',
-    },
-    {
-      number: '02',
-      title: 'Stakeholder & Relationship Management',
-      description:
-        'Aligning customers, suppliers, engineering teams, and operational stakeholders around priorities, expectations, and decisions.',
-      icon: 'Users',
-    },
-    {
-      number: '03',
-      title: 'Quality Management',
-      description:
-        'Driving issues from problem identification through containment, root cause analysis, corrective action, and closure, with a focus on quality performance and customer satisfaction.',
-      icon: 'ShieldCheck',
-    },
-    {
-      number: '04',
-      title: 'Operations & Execution',
-      description:
-        'Coordinating people, priorities, resources, and activities to maintain operational continuity and effective execution.',
-      icon: 'Cog',
-    },
-    {
-      number: '05',
-      title: 'Project & Execution Management',
-      description:
-        'Turning requirements into structured actions, coordinated execution, and successful delivery across technical and operational environments.',
-      icon: 'Target',
-    },
-    {
-      number: '06',
-      title: 'Problem Solving & Decision Support',
-      description:
-        'Analyzing complex situations, structuring information, and providing technical and operational insight to support effective decisions.',
-      icon: 'Lightbulb',
-    },
-    {
-      number: '07',
-      title: 'Continuous Improvement',
-      description:
-        'Identifying opportunities to improve processes, quality, efficiency, and operational performance through structured improvement initiatives.',
-      icon: 'TrendingUp',
-    },
-    {
-      number: '08',
-      title: 'Display Technology',
-      description:
-        'Technical understanding of TFT/LCD display systems, display validation, hardware/software interactions, and automotive display applications, supporting informed decisions across engineering and quality activities.',
-      icon: 'Monitor',
-    },
-  ],
+capabilities: [
+  {
+    title: 'International Representation',
+    description:
+      'Representing technical interests in international customer and supplier environments, building trust and maintaining alignment across organizations.',
+    icon: 'Globe',
+  },
+  {
+    title: 'Stakeholder & Relationship Management',
+    description:
+      'Aligning customers, suppliers, engineering teams, and operational stakeholders around priorities, expectations, and critical decisions.',
+    icon: 'Users',
+  },
+  {
+    title: 'Quality Management',
+    description:
+      'Driving issues from identification through containment, root cause analysis, and closure, with a focus on performance and customer satisfaction.',
+    icon: 'ShieldCheck',
+  },
+  {
+    title: 'Operations & Execution',
+    description:
+      'Coordinating people, priorities, resources, and activities to maintain operational continuity and ensure effective, day-to-day execution.',
+    icon: 'Cog',
+  },
+  {
+    title: 'Project & Execution Management',
+    description:
+      'Turning requirements into structured actions, coordinated execution, and successful delivery across technical and operational environments.',
+    icon: 'Target',
+  },
+  {
+    title: 'Problem Solving & Decision Support',
+    description:
+      'Analyzing complex situations, structuring information, and providing technical insight to support effective, informed business decisions.',
+    icon: 'Lightbulb',
+  },
+  {
+    title: 'Continuous Improvement',
+    description:
+      'Identifying opportunities to improve processes, quality, and efficiency through structured initiatives and operational optimization.',
+    icon: 'TrendingUp',
+  },
+  {
+    title: 'Display Technology',
+    description:
+      'Technical understanding of TFT/LCD display systems, validation, and hardware/software interactions supporting engineering and quality decisions.',
+    icon: 'Monitor',
+  },
+],
 },
 
   // ═══ LAYER 02 — TECHNICAL ═══
@@ -514,11 +499,13 @@ tagline: [
   'Measurable Results.',
 ],
 
-
 cards: [
   {
     title: 'Renault 3.5" Display',
-    context: 'HannStar · Visteon Tunisia',
+    context: [
+      { name: 'HannStar', url: 'https://www.hannstar.com/' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'renault-3-5.jpg',
     challenge:
       'HannStar 3.5-inch TFT-LCD display for high-volume Renault automotive production. Recurring customer complaints and escalated defects disrupted operations, requiring urgent containment and close customer–supplier coordination.',
@@ -527,7 +514,10 @@ cards: [
   },
   {
     title: 'Renault 5" Display',
-    context: 'HannStar · Visteon Tunisia',
+    context: [
+      { name: 'HannStar', url: 'https://www.hannstar.com/' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'renault-5.jpg',
     challenge:
       'HannStar 5-inch TFT-LCD display for high-volume Renault automotive production. Recurring customer quality complaints required structured investigations, standard 8D problem-solving, and strict corrective-action follow-up.',
@@ -536,7 +526,10 @@ cards: [
   },
   {
     title: 'Renault 10.1" Display',
-    context: 'HannStar · Visteon Tunisia',
+    context: [
+      { name: 'HannStar', url: 'https://www.hannstar.com/' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'renault-10-1.jpg',
     challenge:
       'HannStar 10.1-inch TFT-LCD display for high-volume Renault automotive production. Recurring quality issues, software updates, and processor design changes required technical coordination and design validation follow-up.',
@@ -545,7 +538,10 @@ cards: [
   },
   {
     title: 'Stellantis 10.25" Display',
-    context: 'Tianma · Visteon Tunisia',
+    context: [
+      { name: 'Tianma', url: 'https://www.tianma.eu/' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'stellantis-10-25.jpg',
     challenge:
       'Tianma 10.25-inch TFT-LCD display for high-volume Stellantis automotive production. A customer quality crisis involving escalated defects required urgent sorting, technical analysis, and customer–supplier coordination.',
@@ -554,7 +550,10 @@ cards: [
   },
   {
     title: 'Stellantis 7" Display',
-    context: 'Tianma · Visteon Tunisia',
+    context: [
+      { name: 'Tianma', url: 'https://www.tianma.eu/' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'tianma-7.jpg',
     challenge:
       'Tianma 7-inch TFT-LCD display for high-volume automotive production. Recurring customer quality issues required technical investigation, complaint follow-up, and customer–supplier coordination to support resolution.',
@@ -563,7 +562,10 @@ cards: [
   },
   {
     title: 'Sorting Operations',
-    context: '4-CE · Visteon Tunisia',
+    context: [
+      { name: '4-CE', url: '#' },
+      { name: 'Visteon Tunisia', url: 'https://www.visteon.com/' }
+    ],
     image: 'sorting-operations.jpg',
     challenge:
       'Customer sorting operations requiring direct site supervision, control-method verification, customer communication, and sorting activity coordination to maintain operational control and meet requirements.',
@@ -572,7 +574,10 @@ cards: [
   },
   {
     title: 'MISFAT Plant Electrical',
-    context: 'ETELEC · MISFAT',
+    context: [
+      { name: 'ETELEC', url: '#' },
+      { name: 'MISFAT', url: '#' }
+    ],
     image: 'misfat-project.jpg',
     challenge:
       'Electrical project delivery for the MISFAT industrial plant, covering the complete lifecycle from electrical design to final delivery with on-site coordination with the customer and other contractors to ensure execution.',
@@ -581,7 +586,10 @@ cards: [
   },
   {
     title: 'Smart Military Building',
-    context: 'ETELEC · Air force',
+    context: [
+      { name: 'ETELEC', url: '#' },
+      { name: 'Air force', url: '#' }
+    ],
     image: 'smart-military-building.jpg',
     challenge:
       'Electrical project delivery for a smart military facility, covering the full lifecycle from electrical design to commissioning. Required coordination with other contractors, building automation integration, and security compliance.',

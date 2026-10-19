@@ -167,7 +167,7 @@ export function CoreExpertise() {
         <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-border bg-border md:mt-20 md:grid-cols-2 lg:grid-cols-4">
           {CORE_EXPERTISE.management.capabilities.map((capability, i) => (
             <CapabilityCell
-              key={capability.number}
+              key={capability.title}
               capability={capability}
               index={i}
             />
@@ -276,15 +276,6 @@ export function CoreExpertise() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="md:sticky md:top-24"
             >
-              {/* List header */}
-              <div className="mb-6 flex items-baseline justify-between border-b border-border pb-4">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-silver-mid uppercase">
-                  Domains
-                </span>
-                <span className="font-mono text-[10px] tracking-[0.3em] text-text-dim uppercase">
-                  {String(activeDomainIdx + 1).padStart(2, '0')} / {String(CORE_EXPERTISE.technical.domains.length).padStart(2, '0')}
-                </span>
-              </div>
 
               <ul className="space-y-0">
                 {CORE_EXPERTISE.technical.domains.map((domain, i) => {
@@ -434,21 +425,6 @@ export function CoreExpertise() {
               </AnimatePresence>
             </div>
           </div>
-
-          {/* CLOSING MESSAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mt-6 flex items-center justify-center gap-4 md:mt-8"
-          >
-            <span className="h-px w-12 bg-gradient-to-r from-transparent to-silver-dark md:w-20" />
-            <p className="text-center font-mono text-[10px] tracking-[0.3em] text-silver-mid uppercase md:text-xs">
-              {CORE_EXPERTISE.technical.closing}
-            </p>
-            <span className="h-px w-12 bg-gradient-to-l from-transparent to-silver-dark md:w-20" />
-          </motion.div>
         </div>
       </div>
     </section>
@@ -483,29 +459,24 @@ function CapabilityCell({
         delay: index * 0.04,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative flex min-h-[240px] flex-col overflow-hidden bg-bg p-6 transition-colors duration-500 hover:bg-surface md:p-7"
+      className="group relative flex h-full flex-col justify-between overflow-hidden bg-bg p-6 transition-colors duration-500 hover:bg-surface md:p-7"
     >
       {/* Corner brackets */}
       <span className="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-silver/0 transition-all duration-500 group-hover:border-silver/50" />
       <span className="pointer-events-none absolute right-3 top-3 h-3 w-3 border-r border-t border-silver/0 transition-all duration-500 group-hover:border-silver/50" />
 
-      {/* HEADER */}
-      <div className="mb-6 flex items-start justify-between">
-        <span className="font-mono text-[10px] tracking-[0.3em] text-silver-dark uppercase">
-          {capability.number}
-        </span>
-        <div className="flex h-9 w-9 items-center justify-center text-silver-mid transition-colors duration-500 group-hover:text-white">
-          <Icon className="h-5 w-5" strokeWidth={1.25} />
+      {/* HEADER — Icon + Title on the same line */}
+      <div className="mb-5 flex items-center gap-3">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-bg/50 text-silver-mid transition-all duration-500 group-hover:border-silver/50 group-hover:text-white">
+          <Icon className="h-4 w-4" strokeWidth={1.25} />
         </div>
+        <h3 className="text-[15px] font-medium leading-tight tracking-tight text-white">
+          {capability.title}
+        </h3>
       </div>
 
-      {/* TITLE */}
-      <h3 className="mb-3 text-[15px] font-medium leading-tight tracking-tight text-white">
-        {capability.title}
-      </h3>
-
       {/* DESCRIPTION */}
-      <p className="flex-1 text-[12px] leading-relaxed text-text-muted transition-colors duration-500 group-hover:text-text-secondary">
+      <p className="text-[12px] leading-relaxed text-text-muted transition-colors duration-500 group-hover:text-text-secondary">
         {capability.description}
       </p>
 

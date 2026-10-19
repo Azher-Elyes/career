@@ -14,7 +14,6 @@ export function Impact() {
       <div className="container-main relative">
         <CinematicIntro />
         <ImpactCards />
-        <Approach />
       </div>
     </section>
   );
@@ -272,16 +271,38 @@ function ProjectCard({
       }}
       className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface/20 transition-all duration-500 hover:border-silver-dark/60 hover:bg-surface/40"
     >
-      {/* HEADER */}
-      <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4">
+      {/* ─── HEADER ─── */}
+      <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 md:px-6">
         <div>
           <h3 className="text-base font-medium leading-tight tracking-tight text-white md:text-lg">
             {card.title}
           </h3>
-          <p className="mt-1.5 font-mono text-[9px] tracking-[0.2em] text-silver-mid uppercase">
-            {card.context}
-          </p>
+          
+          {/* Company Links */}
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[9px] tracking-[0.2em] uppercase">
+            {card.context.map((company, idx) => (
+              <span key={company.name} className="inline-flex items-center gap-1.5">
+                <a
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link inline-flex items-center gap-1 text-silver-mid transition-colors duration-300 hover:text-white"
+                >
+                  {company.name}
+                  <ArrowUpRight className="h-2.5 w-2.5 text-silver-mid transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-white" />
+                </a>
+                {idx < card.context.length - 1 && (
+                  <span className="text-border-bright">·</span>
+                )}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* Arrow icon */}
+        <ArrowUpRight
+          className="h-4 w-4 shrink-0 text-silver-mid transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
+        />
       </div>
 
       {/* IMAGE */}
@@ -325,175 +346,6 @@ function ProjectCard({
 /* ───────────────────────────────────────────────────────── */
 /*  PART C — APPROACH (From Analysis to Action)              */
 /* ───────────────────────────────────────────────────────── */
-function Approach() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start 80%', 'end 40%'],
-  });
-
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className="relative mt-20 overflow-hidden rounded-2xl border border-border bg-surface/20 md:mt-24"
-    >
-      {/* Cinematic streak background — right side */}
-      <div className="pointer-events-none absolute inset-0">
-        <svg
-          className="absolute -right-20 -top-20 h-[600px] w-[900px] opacity-[0.15]"
-          viewBox="0 0 900 600"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="streak" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="transparent" />
-              <stop offset="40%" stopColor="#9A9DA2" stopOpacity="0.5" />
-              <stop offset="60%" stopColor="#C7C9CC" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-          </defs>
-          <motion.path
-            d="M 200 550 Q 450 400 550 300 T 850 50"
-            stroke="url(#streak)"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-          />
-          <motion.path
-            d="M 250 600 Q 500 450 600 350 T 900 100"
-            stroke="url(#streak)"
-            strokeWidth="1"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </svg>
-      </div>
-
-      {/* Content */}
-      <div className="relative flex flex-col gap-3 p-2 md:p-2 lg:p-3">         
-        {/* CENTER — 4 stages with arrows */}
-<div className="relative flex w-full items-center justify-center">
-          {/* Desktop horizontal */}
-          <div className="hidden w-full md:block">
-            <div className="relative flex items-center justify-between">
-              {IMPACT.approach.stages.map((stage, i) => (
-                <div key={stage.number} className="contents">
-                  <StageNode stage={stage} index={i} />
-                  {i < IMPACT.approach.stages.length - 1 && (
-                    <ArrowConnector index={i} scrollProgress={lineScale} />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile vertical */}
-          <div className="w-full space-y-8 md:hidden">
-            {IMPACT.approach.stages.map((stage, i) => (
-              <StageNodeMobile key={stage.number} stage={stage} index={i} />
-            ))}
-          </div>
-        </div>
-{/* BOTTOM — Quote */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, margin: '-60px' }}
-  transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-  className="flex flex-col items-center justify-center border-t border-border pt-8 text-center"
->
-  <p className="max-w-3xl text-base italic leading-relaxed text-silver-bright md:text-lg">
-    "{IMPACT.approach.quote}"
-  </p>
-</motion.div>
-      </div>
-    </motion.div>
-  );
-}
-
-function StageNode({
-  stage,
-  index,
-}: {
-  stage: (typeof IMPACT.approach.stages)[number];
-  index: number;
-}) {
-  const Icon = (Icons[stage.icon as keyof typeof Icons] as React.ComponentType<{
-    className?: string;
-  }>) ?? Icons.Circle;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.15,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="group flex flex-col items-center text-center"
-    >
-      {/* Circle node */}
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-silver/30 bg-bg transition-all duration-500 group-hover:border-silver/70 group-hover:bg-silver/[0.05]">
-        <Icon className="h-5 w-5 text-silver-mid transition-colors duration-500 group-hover:text-silver" />
-      </div>
-
-      {/* Title Only */}
-      <p className="mt-4 font-mono text-[10px] font-medium tracking-[0.25em] text-white uppercase">
-        {stage.title}
-      </p>
-    </motion.div>
-  );
-}
-
-function StageNodeMobile({
-  stage,
-  index,
-}: {
-  stage: (typeof IMPACT.approach.stages)[number];
-  index: number;
-}) {
-  const Icon = (Icons[stage.icon as keyof typeof Icons] as React.ComponentType<{
-    className?: string;
-  }>) ?? Icons.Circle;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="flex items-center gap-4"
-    >
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-silver/40 bg-bg">
-        <Icon className="h-5 w-5 text-silver" />
-      </div>
-      <div>
-        <p className="font-mono text-[10px] font-medium tracking-[0.25em] text-white uppercase">
-          {stage.title}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
 
 function ArrowConnector({
   index,

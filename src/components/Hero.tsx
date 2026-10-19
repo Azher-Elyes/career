@@ -123,38 +123,6 @@ export function Hero() {
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           {/* ═══ LEFT COLUMN ═══ */}
           <div className="max-w-2xl">
-            {/* Top labels */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-10 flex flex-wrap items-center gap-x-4 gap-y-2"
-            >
-              {HERO.statusLabel.map((label, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.4 + i * 0.08,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="flex items-center gap-2"
-                >
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span
-                      className="absolute inline-flex h-full w-full animate-ping rounded-full bg-silver opacity-50"
-                      style={{ animationDelay: `${i * 200}ms` }}
-                    />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-silver" />
-                  </span>
-                  <span className="font-mono text-[10px] tracking-[0.25em] text-silver uppercase md:text-[11px]">
-                    {label}
-                  </span>
-                </motion.div>
-              ))}
-            </motion.div>
 
             {/* Main headline */}
             <h1 className="mb-10 font-light leading-[1.15] tracking-[-0.035em]">
@@ -177,15 +145,15 @@ export function Hero() {
             </h1>
 
             {/* Introduction */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.1 }}
-              className="mb-10 max-w-xl text-base leading-[1.75] text-text-secondary md:text-[17px]"
-            >
-I bring together operational coordination, industrial quality and international supplier representation with a strong foundation in electrical & Electronic engineering and Software engineering enabling me to align stakeholders, navigate complex challenges and turn technical understanding into effective action.
-            </motion.p>
-
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.9, delay: 1.1 }}
+  className="mb-6 max-w-xl text-base leading-[1.75] text-text-secondary md:text-[17px]"
+>
+  I bring together operational coordination, industrial quality and international supplier representation with a strong foundation in electrical & Electronic engineering and Software engineering enabling me to align stakeholders, navigate complex challenges and turn technical understanding into effective action.
+</motion.p>
             {/* Current role */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -194,11 +162,17 @@ I bring together operational coordination, industrial quality and international 
               className="mb-8 border-l-2 border-silver-dark pl-5"
             >
               <p className="mb-1.5 text-sm font-medium tracking-tight text-white md:text-base">
-                Resident Engineer | Supplier Representative
+                Resident Engineer
               </p>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-text-muted uppercase">
-                4-CE · Visteon Tunisia · HannStar & Tianma Microelectronics
-              </p>
+                <a
+                  href="https://www.tianma.eu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link inline-flex items-center gap-1.5 text-text-muted transition-colors duration-300 hover:text-white"
+                >
+                  Tianma Microelectronics
+                  <ArrowUpRight className="h-3 w-3 text-silver-mid transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-silver" />
+                </a>
               <p className="mt-1.5 font-mono text-[10px] tracking-[0.2em] text-text-dim uppercase">
                 Automotive Display Technology
               </p>
