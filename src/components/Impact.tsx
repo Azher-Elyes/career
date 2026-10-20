@@ -42,26 +42,6 @@ function CinematicIntro() {
           {/* Subtle grid overlay */}
           <div className="pointer-events-none absolute inset-0 grid-engineering opacity-20 mix-blend-overlay" />
         </div>
-
-        {/* Tagline — top-right */}
-        <div className="absolute right-6 top-6 text-right">
-          {IMPACT.tagline.map((line, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, x: 12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: 0.4 + i * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="font-mono text-[10px] tracking-[0.3em] text-silver uppercase"
-            >
-              {line}
-            </motion.p>
-          ))}
-        </div>
       </div>
 
       {/* Content — left side */}

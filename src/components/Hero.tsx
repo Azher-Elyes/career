@@ -1,264 +1,162 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, ArrowDown } from 'lucide-react';
-import { HeroSystem } from './HeroSystem';
 import { HERO } from '@/data/content';
 import { scrollTo } from '@/hooks/useSmoothScroll';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
 
   return (
     <section
       ref={ref}
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20 md:pt-32"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-32 pb-16"
     >
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/*  BACKGROUND LAYERS                                          */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-
-      {/* 1. Deep black base with subtle vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg to-[#0a0a0d]" />
-
-      {/* 2. Animated engineering grid */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 grid-engineering opacity-30"
-        animate={
-          reduced
-            ? undefined
-            : {
-                backgroundPosition: ['0px 0px', '60px 60px'],
-              }
-        }
-        transition={{
-          duration: 60,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      {/* 3. Top-left silver radial glow */}
-      <motion.div
-        animate={
-          reduced
-            ? undefined
-            : {
-                opacity: [0.5, 0.8, 0.5],
-                scale: [1, 1.05, 1],
-              }
-        }
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="pointer-events-none absolute -left-40 -top-40 h-[700px] w-[700px] rounded-full bg-silver/[0.06] blur-[120px]"
-      />
-
-      {/* 4. Bottom-right silver radial glow */}
-      <motion.div
-        animate={
-          reduced
-            ? undefined
-            : {
-                opacity: [0.4, 0.7, 0.4],
-                scale: [1, 1.08, 1],
-              }
-        }
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 2,
-        }}
-        className="pointer-events-none absolute -right-40 -bottom-40 h-[600px] w-[600px] rounded-full bg-silver/[0.04] blur-[120px]"
-      />
-
-      {/* 5. Vertical beam of light behind the system diagram */}
-      <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 lg:block">
-        <motion.div
-          animate={
-            reduced
-              ? undefined
-              : {
-                  opacity: [0.3, 0.6, 0.3],
-                }
-          }
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute right-1/4 top-1/4 h-[500px] w-[300px] -translate-y-1/2 rounded-full bg-gradient-to-b from-silver/[0.05] via-silver/[0.02] to-transparent blur-3xl"
+      {/* ═══ BACKGROUND IMAGE ═══ */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={`${import.meta.env.BASE_URL}hero-bg.jpg`}
+          alt="Engineering environment"
+          className="h-full w-full object-cover object-center grayscale opacity-100"
+          loading="eager"
         />
+        
+        {/* Subtle grid on top of image */}
+        <div className="absolute inset-0 grid-engineering opacity-100 mix-blend-overlay" />
       </div>
 
-      {/* 6. Floating particles */}
-      {!reduced && <Particles />}
-
-      {/* 7. Subtle noise texture */}
-      <div className="pointer-events-none absolute inset-0 noise-overlay opacity-40" />
-
-      {/* 8. Bottom fade to next section */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-bg to-transparent" />
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/*  CONTENT                                                    */}
-      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* ═══ CONTENT ═══ */}
       <motion.div
         style={{ y, opacity }}
         className="container-main relative z-10 w-full"
       >
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          {/* ═══ LEFT COLUMN ═══ */}
-          <div className="max-w-2xl">
-
-            {/* Main headline */}
-            <h1 className="mb-10 font-light leading-[1.15] tracking-[-0.035em]">
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-[clamp(2rem,5vw,4.25rem)] text-white"
-              >
-                Leadership First.
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="block text-[clamp(1.5rem,3.75vw,3.18rem)] text-silver-gradient"
-              >
-                Engineering as Leverage.
-              </motion.span>
-            </h1>
-
-            {/* Introduction */}
-<motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.9, delay: 1.1 }}
-  className="mb-6 max-w-xl text-base leading-[1.75] text-text-secondary md:text-[17px]"
->
-  I bring together operational coordination, industrial quality and international supplier representation with a strong foundation in electrical & Electronic engineering and Software engineering enabling me to align stakeholders, navigate complex challenges and turn technical understanding into effective action.
-</motion.p>
-            {/* Current role */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+        <div className="max-w-4xl">
+          
+          {/* Headline — Large, cinematic */}
+          <h1 className="mb-5 text-[clamp(2.5rem,4vw,10rem)] font-light leading-[1.2] tracking-[-0.03em]">
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              className="mb-8 border-l-2 border-silver-dark pl-5"
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="block text-silver-gradient"
             >
-              <p className="mb-1.5 text-sm font-medium tracking-tight text-white md:text-base">
-                Resident Engineer
-              </p>
-                <a
-                  href="https://www.tianma.eu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/link inline-flex items-center gap-1.5 text-text-muted transition-colors duration-300 hover:text-white"
-                >
-                  Tianma Microelectronics
-                  <ArrowUpRight className="h-3 w-3 text-silver-mid transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-silver" />
-                </a>
-              <p className="mt-1.5 font-mono text-[10px] tracking-[0.2em] text-text-dim uppercase">
-                Automotive Display Technology
-              </p>
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              Leadership First.
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-              className="flex flex-wrap items-center gap-4"
+              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="block text-silver-gradient"
             >
-              <button
-                onClick={() => scrollTo('#journey')}
-                className="group inline-flex items-center gap-2 rounded-full bg-silver-bright px-6 py-3.5 text-sm font-medium tracking-tight text-bg transition-all duration-300 hover:bg-white hover:shadow-[0_0_30px_-5px_rgba(225,227,230,0.4)] focus:outline-none focus:ring-2 focus:ring-silver-bright focus:ring-offset-2 focus:ring-offset-bg"
-              >
-                Explore My Experience
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              Engineering as Leverage.
+            </motion.span>
+          </h1>
 
-              <a
-                href={`${import.meta.env.BASE_URL}cv.pdf`}
-                className="group inline-flex items-center gap-2 rounded-full border border-border-strong bg-transparent px-6 py-3.5 text-sm font-medium tracking-tight text-white transition-all duration-300 hover:border-silver hover:bg-white/5 hover:shadow-[0_0_30px_-5px_rgba(225,227,230,0.15)] focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg"
-              >
-                Download CV
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>           
-            </motion.div>
-          </div>
-
-          {/* ═══ RIGHT COLUMN ═══ */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.3, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:block"
+          {/* Description — Clean, larger text */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.8 }}
+            className="mb-3 max-w-2xl text-base leading-[1.7] text-text-secondary md:text-lg"
           >
-            <HeroSystem />
+            I bring together operational coordination, industrial quality and
+            international supplier representation with a strong foundation in
+            electrical & electronic engineering and software engineering, enabling
+            me to align stakeholders, navigate complex challenges and turn technical
+            understanding into effective action.
+          </motion.p>
+
+          {/* Current Role Block */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.0 }}
+            className="mb-12 inline-flex flex-col border-l-2 border-silver pl-5"
+          >
+            <p className="text-base font-medium tracking-tight text-white md:text-lg">
+              Resident Engineer
+            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[10px] tracking-[0.2em] uppercase">
+              <a
+                href="https://www.tianma.eu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/link inline-flex items-center gap-1 text-silver transition-colors duration-300 hover:text-white"
+              >
+                Tianma Microelectronics
+                <ArrowUpRight className="h-3 w-3 text-silver-mid transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-white" />
+              </a>
+            </div>
+            <p className="mt-2 font-mono text-[10px] tracking-[0.2em] text-text-muted uppercase">
+              Automotive Display Technology
+            </p>
+          </motion.div>
+
+          {/* ═══ BUTTONS ═══ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="flex flex-wrap items-center gap-4"
+          >
+            {/* Primary Button */}
+            <button
+              onClick={() => scrollTo('#journey')}
+              className="group relative inline-flex items-center gap-3 rounded-full bg-silver px-8 py-4 text-sm font-medium tracking-tight text-bg transition-all duration-300 hover:bg-white hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg"
+            >
+              Explore My Experience
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+
+            {/* Secondary Button */}
+            <a
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
+              className="group relative inline-flex items-center gap-3 rounded-full border border-silver/30 bg-bg/50 px-8 py-4 text-sm font-medium tracking-tight text-white backdrop-blur-sm transition-all duration-300 hover:border-silver hover:bg-silver/10 focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg"
+            >
+              Download CV
+              <ArrowUpRight className="h-4 w-4 text-silver-mid transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+            </a>
           </motion.div>
         </div>
       </motion.div>
+
+{/* ═══ SCROLL INDICATOR ═══ */}
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 2 }}
+  className="absolute bottom-8 left-1/2 -translate-x-1/2"
+>
+  <button
+    onClick={() => scrollTo('#about')}
+    className="group flex flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-text-muted uppercase transition-colors hover:text-white"
+    aria-label="Scroll to next section"
+  >
+    <span>Scroll</span>
+    <motion.div
+      animate={{ y: [0, 4, 0] }}
+      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      {/* Mouse outline */}
+      <div className="relative h-5 w-3 rounded-full border border-current">
+        {/* Animated scroll wheel dot */}
+        <motion.div
+          animate={{ y: [2, 6, 2], opacity: [1, 0.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute left-1/2 top-0 h-1 w-0.5 -translate-x-1/2 rounded-full bg-current"
+        />
+      </div>
+    </motion.div>
+  </button>
+</motion.div>
     </section>
-  );
-}
-
-/* ───────────────────────────────────────────────────────── */
-/*  PARTICLES — floating dots across the hero               */
-/* ───────────────────────────────────────────────────────── */
-function Particles() {
-  const particles = Array.from({ length: 30 });
-
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {particles.map((_, i) => {
-        // Deterministic pseudo-random positions
-        const left = (i * 37) % 100;
-        const top = (i * 53) % 100;
-        const delay = (i * 0.3) % 5;
-        const duration = 8 + (i % 5) * 2;
-        const size = i % 3 === 0 ? 1.5 : 1;
-        const opacity = 0.15 + (i % 4) * 0.1;
-
-        return (
-          <motion.span
-            key={i}
-            className="absolute rounded-full bg-silver"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              width: size,
-              height: size,
-              opacity,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [opacity * 0.5, opacity, opacity * 0.5],
-            }}
-            transition={{
-              duration,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay,
-            }}
-          />
-        );
-      })}
-    </div>
   );
 }

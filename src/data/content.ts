@@ -204,7 +204,7 @@ export const JOURNEY = {
       subtitle: 'HannStar Display corporation',
       subtitleUrl: 'https://www.hannstar.com/',
       detail: 'Resident Engineer',
-      description:'Act as the technical and operational interface between supplier and customer, supporting product quality, production stability, and customer requirements for TFT/LCD display systems. Lead customer quality issues through containment, 8D, root cause analysis, and corrective actions, while coordinating supplier, customer, and production teams. Support new product introduction and industrial ramp-up through specification reviews, production readiness, display validation, and cross-functional technical coordination.',
+      description: 'Serve as the technical and operational interface between supplier and customer, ensuring TFT/LCD product quality, production stability, and customer satisfaction. Lead quality issues through containment, 8D, root cause analysis, and corrective actions. Support new product introduction, industrial ramp-up, specification reviews, and display validation through cross-functional coordination.',
       image: 'visteon.jpg',
     },
     
@@ -598,36 +598,6 @@ cards: [
   },
 ],
 
-  approach: {
-    label: 'My Approach',
-    headline: '',
-    intro:
-      '',
-    quote:
-      'From analysis to action, a structured approach to turn complex situations into clear decisions and sustainable results.',
-stages: [
-  {
-    number: '01',
-    title: 'Understand',
-    icon: 'Search',
-  },
-  {
-    number: '02',
-    title: 'Align',
-    icon: 'Users',
-  },
-  {
-    number: '03',
-    title: 'Execute',
-    icon: 'Cog',
-  },
-  {
-    number: '04',
-    title: 'Improve',
-    icon: 'TrendingUp',
-  },
-],  
-  },
 };
 // Testimonials — placeholders only. Do NOT invent fake testimonials.
 export const TESTIMONIALS: Testimonial[] = [];
