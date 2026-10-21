@@ -52,62 +52,60 @@ export const PHILOSOPHY = {
   label: 'My Philosophy',
   headline: ['Leadership First.', 'Engineering as Leverage.'],
   body: [
-    'Technical knowledge is not the destination.',
-    "It is the foundation for better decisions, stronger coordination and effective leadership.",
+    'Technical knowledge is not the destination. It is the foundation for better decisions, stronger coordination and effective leadership.',
   ],
   signature: 'Mohamed Elyes Azher',
 };
 
 export const WHAT_I_BRING = {
   label: 'What I Bring',
-  cards: [
-    {
-      title: 'Leadership',
-      description:
-        'Aligning people, stakeholders, and priorities toward shared objectives.',
-      icon: 'Users',
-    },
-    {
-      title: 'Quality',
-      description:
-        'Structured problem solving, continuous improvement, and risk management.',
-      icon: 'ShieldCheck',
-    },
-    {
-      title: 'Operations',
-      description:
-        'Turning plans into execution through efficient coordination and sustainability.',
-      icon: 'Cog',
-    },
-    {
-      title: 'Technical Depth',
-      description:
-        'Understanding complex systems to make informed and effective decisions.',
-      icon: 'CircuitBoard',
-    },
-    {
-      title: 'Customer & Supplier',
-      description:
-        'Building strong relationships and aligning expectations and capabilities.',
-      icon: 'Handshake',
-    },
-    {
-      title: 'Digital Transformation',
-      description:
-        'Using technology, data, and AI to improve how teams and organizations operate.',
-      icon: 'Cloud',
-    },
-  ],
+cards: [
+  {
+    title: 'Leadership',
+    description:
+      'Aligning people, stakeholders, and priorities toward shared goals.',
+    icon: 'Users',
+  },
+  {
+    title: 'Customer relation',
+    description:
+      'Building relationships and aligning expectations with capability.',
+    icon: 'Handshake',
+  },
+  {
+    title: 'Quality',
+    description:
+      'Structured problem solving, continuous improvement, and risk control.',
+    icon: 'ShieldCheck',
+  },
+  {
+    title: 'Operations',
+    description:
+      'Turning plans into execution through efficient, sustainable coordination.',
+    icon: 'Cog',
+  },
+  {
+    title: 'Technical Depth',
+    description:
+      'Understanding complex systems to make informed, effective decisions.',
+    icon: 'CircuitBoard',
+  },
+  {
+    title: 'Digital Transformation',
+    description:
+      'Using technology, data, and AI to improve how organizations operate.',
+    icon: 'Cloud',
+  },
+],
 };
 
 export const JOURNEY = {
   label: 'My Journey',
-  headline: ['From Education', 'to Impact'],
+  headline: ['From Education to Impact'],
   intro: 'A journey shaped by curiosity, discipline, and continuous growth from engineering fundamentals to real-world responsibility, from technical foundations to leadership in action. Each step has expanded my perspective, strengthened my capabilities, and brought me closer to the professional I am building a leader who uses engineering as leverage to create impact.',
-  breadcrumb: ['Learning', 'Building', 'Leading'],
   closing: {
-    label: 'Different Steps  →  Same Goal',
-    headline: 'Building a Stronger Tomorrow.',
+    label: '',
+    headline: 'Different Steps  →  Same Goal',
   },
 
   pillars: [
@@ -133,13 +131,13 @@ export const JOURNEY = {
       id: '01',
       side: 'left',
       type: 'education',
-      typeLabel: "Bachelor's Degree",
+      typeLabel: "",
       icon: 'IconSchoolFilled',
       date: '2021 – 2024',
-      title: "Bachelor's Degree",
+      title: "",
       subtitle: 'ISET Nabeul',
       subtitleUrl: 'https://isetn.rnu.tn/',
-      detail: 'Electrical & Electronics Engineering',
+      detail: "Bachelor's Degree: Electrical & Electronics Engineering",
       description:
         'My engineering foundation began here, building a solid understanding of electrical systems, electronics, automation, and industrial technologies. Through academic projects and practical experience, I developed a structured approach to analysis, problem-solving, and technical decision-making skills that would later become the foundation for my work across display technology.',
       image: 'iset-nabeul.jpg',
@@ -148,7 +146,7 @@ export const JOURNEY = {
       id: '02',
       side: 'right',
       type: 'project',
-      typeLabel: 'Graduation Project',
+      typeLabel: '',
       icon: 'IconCodeCircle2Filled',
       date: 'Jan – Jun 2024',
       title: 'Graduation Project',
@@ -157,7 +155,7 @@ export const JOURNEY = {
         { label: 'ISET Nabeul', url: 'https://isetn.rnu.tn/' },
         { label: 'ETELEC ', url: 'https://www.etelec.com.tn/' },
       ],
-      detail: 'Intelligent Autonomous Robot',
+      detail: 'Graduation Project: Intelligent Autonomous Robot',
       description:
         'Developed an intelligent autonomous robotic system combining 6-DOF robotic arm manipulation, autonomous navigation, and real-time decision-making using ROS 2. Designed supporting desktop and mobile applications for real-time monitoring, teleoperation, and task execution, creating an integrated system that connected robotics, software, perception, and autonomous control.',
       image: 'ros2-robot.jpg',
@@ -166,13 +164,13 @@ export const JOURNEY = {
       id: '03',
       side: 'left',
       type: 'education',
-      typeLabel: "Engineering Degree (In Progress)",
+      typeLabel: "",
       icon: 'IconSchoolFilled',
       date: 'Sep 2024 – Present',
       title: "Engineering Degree",
       subtitle: 'ITEAM University',
       subtitleUrl: 'https://iteam-univ.tn/',
-      detail: 'Software engineering',
+      detail: 'Engineering Degree: Software engineering',
       description:
         'Expanding my technical foundation into software engineering, system architecture, AI, and digital solutions.The program strengthens my capabilities in full-stack development, system integration, automation, cloud technologies, and intelligent systems, broadening my ability to connect software with real-world engineering and industrial challenges.',
       image: 'iteam.jpg',
@@ -182,7 +180,7 @@ export const JOURNEY = {
       id: '04',
       side: 'right',
       type: 'work',
-      typeLabel: 'Work Experience',
+      typeLabel: '',
       icon: 'IconBriefcaseFilled',
       date: 'Sep 2024 – Feb 2025',
       title: 'Electrical Engineer',
@@ -197,7 +195,7 @@ export const JOURNEY = {
       id: '05',
       side: 'left',
       type: 'work',
-      typeLabel: 'Work Experience',
+      typeLabel: '',
       icon: 'IconBriefcaseFilled',
       date: 'Feb 2025 – JUN 2026',
       title: '4-CE | Supplier Representative at Visteon Tunisia',
@@ -212,7 +210,7 @@ export const JOURNEY = {
       id: '06',
       side: 'right',
       type: 'work',
-      typeLabel: 'Work Experience',
+      typeLabel: '',
       icon: 'IconBriefcaseFilled',
       date: 'July 2026 – Present',
       title: 'Resident Engineer',
@@ -234,63 +232,63 @@ export const CORE_EXPERTISE = {
   countLabel: '10 Capabilities',
   headline: 'Leadership through structured responsibility.',
   intro:
-    'Management capability grounded in technical depth — the layer where engineering becomes leadership.',
+    'A structured approach to leadership built on accountability, technical understanding, and operational discipline connecting management, quality, operations, and engineering to solve complex challenges, align stakeholders, and deliver measurable results.',
   heroImage: 'management-hero.jpg',
   keywords: ['Coordinate', 'Align', 'Deliver'],
 
   // ═══ MANAGEMENT CAPABILITIES ═══
   management: {
-capabilities: [
-  {
-    title: 'International Representation',
-    description:
-      'Representing technical interests in international customer and supplier environments, building trust and maintaining alignment across organizations.',
-    icon: 'Globe',
+  capabilities: [
+    {
+      title: 'International Representation',
+      description:
+        'Representing technical interests in international customer and supplier environments, building trust and maintaining alignment across organizations.',
+      icon: 'Globe',
+    },
+    {
+      title: 'Stakeholder & Relationship Management',
+      description:
+        'Aligning customers, suppliers, engineering teams, and operational stakeholders around priorities, expectations, and critical decisions.',
+      icon: 'Users',
+    },
+    {
+      title: 'Quality Management',
+      description:
+        'Driving issues from identification through containment, root cause analysis, and closure, with a focus on performance and customer satisfaction.',
+      icon: 'ShieldCheck',
+    },
+    {
+      title: 'Operations & Execution',
+      description:
+        'Coordinating people, priorities, resources, and activities to maintain operational continuity and ensure effective, day-to-day execution.',
+      icon: 'Cog',
+    },
+    {
+      title: 'Project & Execution Management',
+      description:
+        'Turning requirements into structured actions, coordinated execution, and successful delivery across technical and operational environments.',
+      icon: 'Target',
+    },
+    {
+      title: 'Problem Solving & Decision Support',
+      description:
+        'Analyzing complex situations, structuring information, and providing technical insight to support effective, informed business decisions.',
+      icon: 'Lightbulb',
+    },
+    {
+      title: 'Continuous Improvement',
+      description:
+        'Identifying opportunities to improve processes, quality, and efficiency through structured initiatives and operational optimization.',
+      icon: 'TrendingUp',
+    },
+    {
+      title: 'Display Technology',
+      description:
+        'Technical understanding of TFT/LCD display systems, validation, and hardware/software interactions supporting engineering and quality decisions.',
+      icon: 'Monitor',
+    },
+  ],
   },
-  {
-    title: 'Stakeholder & Relationship Management',
-    description:
-      'Aligning customers, suppliers, engineering teams, and operational stakeholders around priorities, expectations, and critical decisions.',
-    icon: 'Users',
-  },
-  {
-    title: 'Quality Management',
-    description:
-      'Driving issues from identification through containment, root cause analysis, and closure, with a focus on performance and customer satisfaction.',
-    icon: 'ShieldCheck',
-  },
-  {
-    title: 'Operations & Execution',
-    description:
-      'Coordinating people, priorities, resources, and activities to maintain operational continuity and ensure effective, day-to-day execution.',
-    icon: 'Cog',
-  },
-  {
-    title: 'Project & Execution Management',
-    description:
-      'Turning requirements into structured actions, coordinated execution, and successful delivery across technical and operational environments.',
-    icon: 'Target',
-  },
-  {
-    title: 'Problem Solving & Decision Support',
-    description:
-      'Analyzing complex situations, structuring information, and providing technical insight to support effective, informed business decisions.',
-    icon: 'Lightbulb',
-  },
-  {
-    title: 'Continuous Improvement',
-    description:
-      'Identifying opportunities to improve processes, quality, and efficiency through structured initiatives and operational optimization.',
-    icon: 'TrendingUp',
-  },
-  {
-    title: 'Display Technology',
-    description:
-      'Technical understanding of TFT/LCD display systems, validation, and hardware/software interactions supporting engineering and quality decisions.',
-    icon: 'Monitor',
-  },
-],
-},
 
   // ═══ LAYER 02 — TECHNICAL ═══
   technical: {
@@ -494,9 +492,7 @@ headline: 'Driving Results Through Leadership and Execution.',
 intro:
   'From international supplier representation to industrial project delivery, I coordinate people, technical activities, and operational priorities to resolve challenges, ensure execution, and deliver results.',
 tagline: [
-  'Clear Direction.',
-  'Structured Execution.',
-  'Measurable Results.',
+  '',
 ],
 
 cards: [

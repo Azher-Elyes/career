@@ -41,24 +41,24 @@ export function Hero() {
         <div className="max-w-4xl">
           
           {/* Headline — Large, cinematic */}
-          <h1 className="mb-5 text-[clamp(2.5rem,4vw,10rem)] font-light leading-[1.2] tracking-[-0.03em]">
-            <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="block text-silver-gradient"
-            >
-              Leadership First.
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="block text-silver-gradient"
-            >
-              Engineering as Leverage.
-            </motion.span>
-          </h1>
+            <h1 className="mb-10 font-light leading-[1.04] tracking-[-0.035em]">
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="block text-[clamp(2rem,5vw,4.25rem)] text-white"
+              >
+                Leadership First.
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className="block text-[clamp(1.5rem,3.75vw,3.25rem)] text-silver-gradient"
+              >
+                Engineering as Leverage.
+              </motion.span>
+            </h1>
 
           {/* Description — Clean, larger text */}
           <motion.p
@@ -105,24 +105,24 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex w-full flex-row items-center gap-2 sm:w-auto sm:gap-4"
           >
             {/* Primary Button */}
             <button
               onClick={() => scrollTo('#journey')}
-              className="group relative inline-flex items-center gap-3 rounded-full bg-silver px-8 py-4 text-sm font-medium tracking-tight text-bg transition-all duration-300 hover:bg-white hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg"
+              className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-silver px-3 py-3 text-xs font-medium tracking-tight text-bg transition-all duration-300 hover:bg-white hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg sm:flex-none sm:gap-3 sm:px-8 sm:py-4 sm:text-sm"
             >
-              Explore My Experience
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <span className="whitespace-nowrap">Explore My Experience</span>
+              <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1 sm:h-4 sm:w-4" />
             </button>
 
             {/* Secondary Button */}
             <a
               href={`${import.meta.env.BASE_URL}cv.pdf`}
-              className="group relative inline-flex items-center gap-3 rounded-full border border-silver/30 bg-bg/50 px-8 py-4 text-sm font-medium tracking-tight text-white backdrop-blur-sm transition-all duration-300 hover:border-silver hover:bg-silver/10 focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg"
+              className="group relative inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-silver/30 bg-bg/50 px-3 py-3 text-xs font-medium tracking-tight text-white backdrop-blur-sm transition-all duration-300 hover:border-silver hover:bg-silver/10 focus:outline-none focus:ring-2 focus:ring-silver focus:ring-offset-2 focus:ring-offset-bg sm:flex-none sm:gap-3 sm:px-8 sm:py-4 sm:text-sm"
             >
-              Download CV
-              <ArrowUpRight className="h-4 w-4 text-silver-mid transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+              <span className="whitespace-nowrap">Download CV</span>
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-silver-mid transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white sm:h-4 sm:w-4" />
             </a>
           </motion.div>
         </div>
@@ -140,7 +140,6 @@ export function Hero() {
     className="group flex flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-text-muted uppercase transition-colors hover:text-white"
     aria-label="Scroll to next section"
   >
-    <span>Scroll</span>
     <motion.div
       animate={{ y: [0, 4, 0] }}
       transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}

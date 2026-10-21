@@ -12,7 +12,6 @@ export function TestimonialsSection() {
           {/* Header */}
           <div className="mb-16 max-w-3xl">
             <div className="mb-6 flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.3em] text-text-muted md:text-xs">
-              <span className="h-px w-8 bg-border" />
               <span>Collaboration</span>
             </div>
             <h2 className="mb-6 text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.03em] text-white">

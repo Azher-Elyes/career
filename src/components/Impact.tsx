@@ -9,7 +9,7 @@ export function Impact() {
   return (
     <section
       id="impact"
-      className="relative overflow-hidden py-24 md:py-8 lg:py-10"
+      className="relative overflow-hidden py-2 md:py-8 lg:py-10"
     >
       <div className="container-main relative">
         <CinematicIntro />
@@ -99,22 +99,6 @@ function CinematicIntro() {
         >
           {IMPACT.intro}
         </motion.p>
-
-        {/* Mobile tagline */}
-        <div className="mt-10 flex flex-col gap-1 lg:hidden">
-          {IMPACT.tagline.map((line, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
-              className="font-mono text-[10px] tracking-[0.3em] text-silver uppercase"
-            >
-              {line}
-            </motion.p>
-          ))}
-        </div>
       </div>
     </div>
   );
@@ -169,7 +153,7 @@ function ImpactCards() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.8 }}
-        className="mb-12 flex items-end justify-between gap-6 md:mb-16"
+        className="mb-2 flex items-end justify-between gap-6 md:mb-16"
       >
       </motion.div>
       {/* ═══ CAROUSEL WRAPPER ═══ */}
@@ -278,11 +262,6 @@ function ProjectCard({
             ))}
           </div>
         </div>
-
-        {/* Arrow icon */}
-        <ArrowUpRight
-          className="h-4 w-4 shrink-0 text-silver-mid transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
-        />
       </div>
 
       {/* IMAGE */}

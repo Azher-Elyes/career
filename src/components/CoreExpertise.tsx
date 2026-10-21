@@ -115,7 +115,7 @@ export function CoreExpertise() {
               />
 
               {/* Headline */}
-              <h2 className="mt-12 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-light tracking-[-0.03em]">
+              <h2 className="mt-2 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-light tracking-[-0.03em]">
                 <span className="block overflow-hidden text-white">
                   <motion.span
                     initial={{ y: '100%' }}
@@ -162,16 +162,32 @@ export function CoreExpertise() {
         </div>
 
         {/* ══════════════════════════════════════════════════════ */}
-        {/*  MANAGEMENT GRID — 4 cols × 2 rows                     */}
+        {/*  MANAGEMENT GRID — Carousel on mobile, 4-col grid on desktop */}
         {/* ══════════════════════════════════════════════════════ */}
-        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-border bg-border md:mt-20 md:grid-cols-2 lg:grid-cols-4">
-          {CORE_EXPERTISE.management.capabilities.map((capability, i) => (
-            <CapabilityCell
-              key={capability.title}
-              capability={capability}
-              index={i}
-            />
-          ))}
+        <div className="mt-16 md:mt-20">
+          <div className="
+            flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2
+            [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+            md:grid md:grid-cols-2 md:gap-px md:overflow-hidden md:rounded-none md:border md:border-border md:bg-border lg:grid-cols-4
+          ">
+            {CORE_EXPERTISE.management.capabilities.map((capability, i) => (
+              <CapabilityCell
+                key={capability.title}
+                capability={capability}
+                index={i}
+              />
+            ))}
+          </div>
+
+          {/* Mobile dots */}
+          <div className="mt-4 flex justify-center gap-2 md:hidden">
+            {CORE_EXPERTISE.management.capabilities.map((_, i) => (
+              <span
+                key={i}
+                className="h-1.5 w-1.5 rounded-full bg-silver/25"
+              />
+            ))}
+          </div>
         </div>
 
         {/* ══════════════════════════════════════════════════════ */}
@@ -220,7 +236,7 @@ export function CoreExpertise() {
                   className="mt-6 h-px w-full bg-gradient-to-r from-border via-border to-transparent"
                 />
 
-                <h2 className="mt-12 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-light tracking-[-0.03em]">
+                <h2 className="mt-2 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] font-light tracking-[-0.03em]">
                   <span className="block overflow-hidden text-white">
                     <motion.span
                       initial={{ y: '100%' }}
@@ -268,15 +284,15 @@ export function CoreExpertise() {
 
           {/* DOMAIN NAVIGATOR */}
           <div className="mt-16 grid gap-10 md:mt-10 md:grid-cols-[1fr_1.8fr] md:gap-16">
-            {/* LEFT — Domain list */}
+            
+            {/* LEFT — Domain list (HIDDEN on mobile) */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="md:sticky md:top-24"
+              className="hidden md:block md:sticky md:top-24"
             >
-
               <ul className="space-y-0">
                 {CORE_EXPERTISE.technical.domains.map((domain, i) => {
                   const isActive = activeDomainIdx === i;
@@ -321,108 +337,173 @@ export function CoreExpertise() {
               </ul>
             </motion.div>
 
-            {/* RIGHT — Content panel */}
-            <div className="relative md:min-h-[440px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeDomain.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative rounded-lg border border-border bg-surface/20 p-6 md:p-7"
-                >
-                  {/* Panel header */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="font-mono text-[10px] tracking-[0.28em] text-silver-mid uppercase">
-                        {activeDomain.number} — {activeDomain.title}
+            {/* RIGHT — Content panel (Desktop) / Carousel (Mobile) */}
+            {/* ✅ min-w-0 is CRITICAL here so the carousel can scroll inside the grid */}
+            <div className="relative min-w-0 md:min-h-[440px]">
+              
+              {/* ═══ MOBILE CAROUSEL ═══ */}
+              <div className="flex md:hidden w-full gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {CORE_EXPERTISE.technical.domains.map((domain) => (
+                  <div
+                    key={domain.id}
+                    className="w-[85vw] max-w-[340px] shrink-0 snap-start"
+                  >
+                    <div className="relative flex h-full flex-col rounded-lg border border-border bg-surface/20 p-5">
+                      {/* Panel header */}
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <span className="font-mono text-[10px] tracking-[0.28em] text-silver-mid uppercase">
+                            {domain.number} — {domain.title}
+                          </span>
+                          <p className="mt-2 text-[13px] leading-relaxed text-text-secondary">
+                            {domain.intro}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="my-4 h-px w-full bg-gradient-to-r from-silver-mid/30 via-border to-transparent" />
+
+                      <div className="grid gap-6">
+                        {/* Capabilities */}
+                        <div>
+                          <p className="mb-3 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
+                            Key Capabilities
+                          </p>
+                          <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+                            {domain.capabilities.map((cap) => (
+                              <div key={cap} className="flex items-start gap-1.5 py-0.5">
+                                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-silver-mid" />
+                                <span className="text-[11px] leading-snug text-text-secondary">
+                                  {cap}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Tools */}
+                        <div>
+                          <p className="mb-3 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
+                            Tools & Technologies
+                          </p>
+                          <div className="grid grid-cols-2 gap-1">
+                            {domain.tools.map((tool) => {
+                              const Icon =
+                                (TOOL_ICONS[tool.icon as keyof typeof TOOL_ICONS] as React.ComponentType<{
+                                  className?: string;
+                                  strokeWidth?: number;
+                                }>) ?? Icons.Code2;
+
+                              return (
+                                <div
+                                  key={tool.name}
+                                  className="flex items-center gap-1.5 rounded-sm border border-border bg-bg/50 px-2 py-1.5"
+                                >
+                                  <Icon className="h-3 w-3 shrink-0 text-silver-mid" strokeWidth={1.5} />
+                                  <span className="truncate font-mono text-[9px] tracking-wide text-text-muted">
+                                    {tool.name}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile dots */}
+              <div className="mt-4 flex justify-center gap-2 md:hidden">
+                {CORE_EXPERTISE.technical.domains.map((_, i) => (
+                  <span key={i} className="h-1.5 w-1.5 rounded-full bg-silver/25" />
+                ))}
+              </div>
+
+              {/* ═══ DESKTOP PANEL (Original) ═══ */}
+              <div className="hidden md:block">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeDomain.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative rounded-lg border border-border bg-surface/20 p-6 md:p-7"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <span className="font-mono text-[10px] tracking-[0.28em] text-silver-mid uppercase">
+                          {activeDomain.number} — {activeDomain.title}
+                        </span>
+                        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
+                          {activeDomain.intro}
+                        </p>
+                      </div>
+                      <span className="hidden shrink-0 font-mono text-[9px] tracking-[0.3em] text-text-dim uppercase md:block">
+                        {activeDomain.capabilities.length} capabilities ·{' '}
+                        {activeDomain.tools.length} tools
                       </span>
-                      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
-                        {activeDomain.intro}
-                      </p>
-                    </div>
-                    <span className="hidden shrink-0 font-mono text-[9px] tracking-[0.3em] text-text-dim uppercase md:block">
-                      {activeDomain.capabilities.length} capabilities ·{' '}
-                      {activeDomain.tools.length} tools
-                    </span>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="my-6 h-px w-full bg-gradient-to-r from-silver-mid/30 via-border to-transparent" />
-
-                  <div className="grid gap-8 md:grid-cols-[1.3fr_1fr] md:gap-10">
-                    {/* Capabilities */}
-                    <div>
-                      <p className="mb-4 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
-                        Key Capabilities
-                      </p>
-
-                      <div className="grid grid-cols-1 gap-x-5 gap-y-1.5 sm:grid-cols-2">
-                        {activeDomain.capabilities.map((cap, i) => (
-                          <motion.div
-                            key={cap}
-                            initial={{ opacity: 0, x: -8 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                              duration: 0.4,
-                              delay: i * 0.02,
-                              ease: [0.16, 1, 0.3, 1],
-                            }}
-                            className="flex items-center gap-2.5 py-0.5"
-                          >
-                            <span className="h-1 w-1 shrink-0 rounded-full bg-silver-mid" />
-                            <span className="text-[12px] text-text-secondary">
-                              {cap}
-                            </span>
-                          </motion.div>
-                        ))}
-                      </div>
                     </div>
 
-                    {/* Tools */}
-                    <div>
-                      <p className="mb-4 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
-                        Tools & Technologies
-                      </p>
+                    <div className="my-6 h-px w-full bg-gradient-to-r from-silver-mid/30 via-border to-transparent" />
 
-                      <div className="grid grid-cols-2 gap-1.5">
-                        {activeDomain.tools.map((tool, i) => {
-                          const Icon =
-                            (TOOL_ICONS[
-                              tool.icon as keyof typeof TOOL_ICONS
-                            ] as React.ComponentType<{
-                              className?: string;
-                              strokeWidth?: number;
-                            }>) ?? Icons.Code2;
-
-                          return (
+                    <div className="grid gap-8 md:grid-cols-[1.3fr_1fr] md:gap-10">
+                      <div>
+                        <p className="mb-4 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
+                          Key Capabilities
+                        </p>
+                        <div className="grid grid-cols-1 gap-x-5 gap-y-1.5 sm:grid-cols-2">
+                          {activeDomain.capabilities.map((cap, i) => (
                             <motion.div
-                              key={tool.name}
-                              initial={{ opacity: 0, scale: 0.9 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{
-                                duration: 0.4,
-                                delay: i * 0.02,
-                                ease: [0.16, 1, 0.3, 1],
-                              }}
-                              className="flex items-center gap-2 rounded-sm border border-border bg-bg/50 px-2.5 py-1.5 transition-colors duration-300 hover:border-silver-dark"
+                              key={cap}
+                              initial={{ opacity: 0, x: -8 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: i * 0.02, ease: [0.16, 1, 0.3, 1] }}
+                              className="flex items-center gap-2.5 py-0.5"
                             >
-                              <Icon
-                                className="h-3.5 w-3.5 shrink-0 text-silver-mid"
-                                strokeWidth={1.5}
-                              />
-                              <span className="truncate font-mono text-[10px] tracking-wide text-text-muted">
-                                {tool.name}
-                              </span>
+                              <span className="h-1 w-1 shrink-0 rounded-full bg-silver-mid" />
+                              <span className="text-[12px] text-text-secondary">{cap}</span>
                             </motion.div>
-                          );
-                        })}
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="mb-4 font-mono text-[9px] tracking-[0.3em] text-silver-dark uppercase">
+                          Tools & Technologies
+                        </p>
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {activeDomain.tools.map((tool, i) => {
+                            const Icon =
+                              (TOOL_ICONS[tool.icon as keyof typeof TOOL_ICONS] as React.ComponentType<{
+                                className?: string;
+                                strokeWidth?: number;
+                              }>) ?? Icons.Code2;
+
+                            return (
+                              <motion.div
+                                key={tool.name}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.4, delay: i * 0.02, ease: [0.16, 1, 0.3, 1] }}
+                                className="flex items-center gap-2 rounded-sm border border-border bg-bg/50 px-2.5 py-1.5 transition-colors duration-300 hover:border-silver-dark"
+                              >
+                                <Icon className="h-3.5 w-3.5 shrink-0 text-silver-mid" strokeWidth={1.5} />
+                                <span className="truncate font-mono text-[10px] tracking-wide text-text-muted">
+                                  {tool.name}
+                                </span>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
             </div>
           </div>
         </div>
@@ -459,7 +540,7 @@ function CapabilityCell({
         delay: index * 0.04,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative flex h-full flex-col justify-between overflow-hidden bg-bg p-6 transition-colors duration-500 hover:bg-surface md:p-7"
+      className="group relative flex h-full w-[82vw] max-w-[340px] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-md border border-border bg-bg p-5 transition-colors duration-500 hover:bg-surface sm:w-[48vw] md:w-auto md:max-w-none md:shrink md:rounded-none md:border-0 md:p-6 lg:p-7"
     >
       {/* Corner brackets */}
       <span className="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-silver/0 transition-all duration-500 group-hover:border-silver/50" />

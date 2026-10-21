@@ -12,22 +12,22 @@ export function AboutMe() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 max-w-3xl md:mb-16"
+          className="mb-4 max-w-3xl md:mb-7"
         >
           <SectionLabel label={ABOUT_ME.label} className="mb-0" />
         </motion.div>
 
         {/* Split: Intro + Portrait */}
-        <div className="grid items-start gap-14 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+        <div className="grid items-start gap-14 lg:grid-cols-[1.4fr_1fr] lg:gap-2">
           {/* Left — headline + intro paragraphs */}
           <div>
-            {/* Headline — matches Philosophy headline style */}
-            <h2 className="mb-4 text-[clamp(2rem,3.5vw,3rem)] font-light leading-[1.05] tracking-[-0.025em]">
-              <span className="block text-white">{ABOUT_ME.headline}</span>
-              <span className="block text-silver-gradient">
-                {ABOUT_ME.subheadline}
-              </span>
-            </h2>
+{/* Headline — matches Philosophy headline style */}
+<h2 className="mb-4 text-[1.5rem] font-light leading-[1.05] tracking-[-0.025em] sm:text-[clamp(2rem,3.5vw,3rem)]">
+  <span className="block text-white">{ABOUT_ME.headline}</span>
+  <span className="block text-silver-gradient">
+    {ABOUT_ME.subheadline}
+  </span>
+</h2>
 
             {ABOUT_ME.intro.map((paragraph, i) => (
               <motion.p
@@ -40,7 +40,7 @@ export function AboutMe() {
                   delay: i * 0.12,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mb-6 max-w-2xl text-base leading-[1.8] text-text-secondary md:text-[17px] md:leading-[1.85]"
+                className="mb-6 max-w-2xl text-sm leading-[1.75] text-text-secondary md:text-[17px] md:leading-[1.85]"
               >
                 {paragraph}
               </motion.p>

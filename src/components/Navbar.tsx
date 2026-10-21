@@ -47,22 +47,25 @@ export function Navbar() {
             )}
         >
           {/* Logo */}
+          {/* Logo */}
           <button
             onClick={() => handleNav('#home')}
-            className="relative z-10 flex items-center gap-2.5 px-2"
+            className="relative z-10 flex items-center gap-2 px-1 md:gap-2.5 md:px-2"
             aria-label="Mohamed Elyes Azher — home"
           >
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Mohamed Elyes Azher logo"
-              className="h-16 w-16 rounded-md object-contain"
+              className="h-16 w-16 rounded-md object-contain" // Kept big on all screens
               width={64}
               height={64}
             />
-            <span className="hidden text-base font-semibold tracking-tight text-text sm:inline">
+            {/* Name: forced to show on mobile, slightly smaller text to fit next to the big logo */}
+            <span className="inline-block text-sm font-semibold tracking-tight text-text md:text-base">
               Mohamed Elyes Azher
             </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            {/* Pulse dot: hidden on mobile to save space, shows on desktop */}
+            <span className="hidden h-1.5 w-1.5 rounded-full bg-accent animate-pulse md:inline-block" />
           </button>
 
           {/* Desktop nav */}
