@@ -7,7 +7,7 @@ import { scrollTo } from '@/hooks/useSmoothScroll';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { MagneticButton } from './ui/MagneticButton';
 
-const SECTION_IDS = ['home', 'about', 'journey', 'expertise', 'impact', 'contact'];
+const SECTION_IDS = ['home', 'about', 'journey', 'expertise', 'impact', 'testimonials', 'contact']; // ✅ Added 'testimonials'
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);

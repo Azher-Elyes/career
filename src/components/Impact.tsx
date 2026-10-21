@@ -43,28 +43,21 @@ function CinematicIntro() {
           <div className="pointer-events-none absolute inset-0 grid-engineering opacity-20 mix-blend-overlay" />
         </div>
       </div>
-
       {/* Content — left side */}
-      <div className="relative z-10 pt-8 lg:pt-12">
-        {/* Masthead */}
+<div className="relative z-10 pt-0 lg:pt-12">
+          {/* Masthead — NOW USING SECTIONLABEL */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4"
+          className="relative z-20" /* ✅ Force above the image */
         >
-          <span className="font-mono text-[10px] tracking-[0.3em] text-silver">
-            04
-          </span>
-          <span className="h-px w-6 bg-border" />
-          <span className="font-mono text-[10px] tracking-[0.3em] text-text-muted uppercase">
-            {IMPACT.label}
-          </span>
+          <SectionLabel label={IMPACT.label} />
         </motion.div>
 
         {/* Headline */}
-        <h1 className="mt-10 max-w-3xl text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.05] font-light tracking-[-0.03em] lg:max-w-2xl">
+        <h1 className="relative z-20 mt-10 max-w-3xl text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.05] font-light tracking-[-0.03em] lg:max-w-2xl">
           <span className="block overflow-hidden text-white">
             <motion.span
               initial={{ y: '100%' }}

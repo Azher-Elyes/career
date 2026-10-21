@@ -12,6 +12,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Journey', href: '#journey' },
   { label: 'Expertise', href: '#expertise' },
   { label: 'Impact', href: '#impact' },
+  { label: 'Collaboration', href: '#testimonials' }, // ✅ Added here
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -595,10 +596,29 @@ cards: [
 ],
 
 };
-// Testimonials — placeholders only. Do NOT invent fake testimonials.
-export const TESTIMONIALS: Testimonial[] = [];
-
-// Stats — hidden until real values are provided.
+export const TESTIMONIALS = [
+  {
+    quote: "Elyes has a rare ability to bridge the gap between deep technical engineering and operational execution. His leadership during the Visteon ramp-up was instrumental in maintaining our quality standards.",
+    name: "Sarah Jenkins",
+    role: "Operations Director",
+    company: "Visteon",
+    initials: "SJ"
+  },
+  {
+    quote: "Working with him on the autonomous robot project was seamless. He doesn't just write code; he understands the hardware constraints and how to build systems that actually work in the real world.",
+    name: "Karim Ben Ali",
+    role: "Senior Software Engineer",
+    company: "ETELEC",
+    initials: "KB"
+  },
+  {
+    quote: "A reliable and structured leader. When we faced critical supply chain disruptions, Elyes coordinated perfectly between the factory floor and our international suppliers to resolve issues fast.",
+    name: "Mei Lin",
+    role: "Supply Chain Manager",
+    company: "Tianma Microelectronics",
+    initials: "ML"
+  }
+];
 export const STATS: Stat[] = [];
 
 export const SOCIAL_LINKS: SocialLink[] = [

@@ -61,7 +61,7 @@ export function FinalCTA() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mx-auto mb-10 max-w-lg text-base leading-[1.7] text-text-secondary md:text-lg"
         >
-          Open to management opportunities, professional collaborations, and meaningful conversations with industry leaders.
+          Open to  opportunities, professional collaborations, and meaningful conversations with industry leaders.
         </motion.p>
 
         {/* CTA & Footer tag */}
@@ -80,10 +80,7 @@ export function FinalCTA() {
             Get in Touch
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </MagneticButton>
-          
-          <p className="font-mono text-[9px] tracking-[0.3em] text-text-muted uppercase md:text-[10px]">
-            Management · Quality · Operations · Engineering
-          </p>
+
         </motion.div>
       </div>
 
