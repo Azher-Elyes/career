@@ -20,18 +20,29 @@ export function Hero() {
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-32 pb-16"
     >
-      {/* ═══ BACKGROUND IMAGE ═══ */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={`${import.meta.env.BASE_URL}hero-bg.jpg`}
-          alt="Engineering environment"
-          className="h-full w-full object-cover object-center grayscale opacity-100"
-          loading="eager"
-        />
-        
-        {/* Subtle grid on top of image */}
-        <div className="absolute inset-0 grid-engineering opacity-100 mix-blend-overlay" />
-      </div>
+{/* ═══ BACKGROUND IMAGE ═══ */}
+<div className="absolute inset-0 z-0">
+  <picture>
+    {/* Mobile Image (Loads on screens smaller than 768px) */}
+    <source 
+      media="(max-width: 767px)" 
+      srcSet={`${import.meta.env.BASE_URL}hero-bg-mobile.jpg`} 
+    />
+    
+    {/* Desktop Image (Fallback) */}
+    <img
+      src={`${import.meta.env.BASE_URL}hero-bg.jpg`}
+      alt="Engineering environment"
+      /* ✅ Added opacity-40 for mobile, and md:opacity-100 to restore desktop */
+      className="h-full w-full object-cover object-center grayscale opacity-40 md:opacity-100"
+      loading="eager"
+      fetchPriority="high"
+    />
+  </picture>
+  
+  {/* Subtle grid on top of image */}
+  <div className="absolute inset-0 grid-engineering opacity-100 mix-blend-overlay" />
+</div>
 
       {/* ═══ CONTENT ═══ */}
       <motion.div
